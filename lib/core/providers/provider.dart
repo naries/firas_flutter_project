@@ -14,10 +14,6 @@ class Provider extends GetConnect {
     });
   }
 
-  void declareDefaultDecoder(decoder) {
-    httpClient.defaultDecoder = decoder;
-  }
-
   // balance request
   Future<Response> getBalance() => get('/fascon-b2b/balance');
 
