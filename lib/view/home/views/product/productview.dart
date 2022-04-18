@@ -34,7 +34,8 @@ class ProductView extends GetView<ProductController> {
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
-                    Get.toNamed('product');
+                    var productName = products[index].name!;
+                    Get.toNamed('/product?title=$productName');
                   },
                   child: Column(
                     children: [

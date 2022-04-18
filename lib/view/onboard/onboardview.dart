@@ -1,6 +1,9 @@
 import 'package:firas_project/core/bindings/products.dart';
 import 'package:firas_project/view/history/historyview.dart';
 import 'package:firas_project/view/home/homeview.dart';
+import 'package:firas_project/view/home/views/product/productview.dart';
+import 'package:firas_project/view/pin/pinview.dart';
+import 'package:firas_project/view/product/productview.dart';
 import 'package:firas_project/view/unknown_page_route/unkown_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,11 +27,21 @@ class OnboardView extends StatelessWidget {
           binding: ProductBinding(),
         ),
         GetPage(
-            name: '/history',
-            page: () => const History(),
-            transition: Transition.downToUp
-            // binding: ProductBinding(),
-            )
+          name: '/history',
+          page: () => const History(),
+          transition: Transition.downToUp,
+          // binding: ProductBinding(),
+        ),
+        GetPage(
+          name: '/product',
+          page: () => const Product(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: '/pin',
+          page: () => const PinView(),
+          transition: Transition.rightToLeft,
+        ),
       ],
     );
   }
