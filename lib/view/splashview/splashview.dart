@@ -1,3 +1,4 @@
+import 'package:firas_project/misc/widgets/app_text.dart';
 import 'package:firas_project/view/onboard/onboardview.dart';
 import 'package:firas_project/view/splashview/splashview_viewwodel.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class SplashView extends StatelessWidget {
       future: _splash.initializeSettings(),
       builder: (_, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return waitingView();
+          return waitingView(context);
         } else {
           if (snapshot.hasError) {
             return errorView(snapshot);
@@ -35,18 +36,30 @@ class SplashView extends StatelessWidget {
     );
   }
 
-  Scaffold waitingView() {
+  Scaffold waitingView(context) {
     return Scaffold(
-      body: Center(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: Color.fromRGBO(2, 62, 2, 1),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Padding(
-              padding: EdgeInsets.all(16.0),
-              child: CircularProgressIndicator(),
+              padding: const EdgeInsets.all(16.0),
+              child: Image.asset(
+                'assets/logo.jpg',
+                height: 100,
+              ),
             ),
-            Text('Loading...'),
+            const AppText(
+              text: 'Loading...',
+              color: Colors.white,
+              size: 20,
+            ),
           ],
         ),
       ),

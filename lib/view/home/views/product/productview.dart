@@ -1,6 +1,7 @@
 import 'package:firas_project/core/controllers/products.dart';
 import 'package:firas_project/misc/app_colors.dart';
 import 'package:firas_project/misc/widgets/app_text.dart';
+import 'package:firas_project/view/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:skeletons/skeletons.dart';
@@ -103,15 +104,26 @@ class ProductView extends GetView<ProductController> {
                 );
               },
             ),
-            onError: (error) => Column(
-              children: [
-                const Text('Error: Something went wrong!'),
-                ElevatedButton(
-                    onPressed: () {
+            onError: (error) => Center(
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: AppText(
+                      text:
+                          'Error: Something went wrong! Check if you\'re connected.',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  AppButton(
+                    'Try again',
+                    func: () {
                       controller.fetchAllProducts();
                     },
-                    child: const Text('Try again'))
-              ],
+                    comparison: true,
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -126,11 +138,15 @@ class ProductView extends GetView<ProductController> {
           Color.fromARGB(255, 199, 192, 192),
           Color.fromARGB(255, 107, 102, 102),
           Color.fromARGB(255, 154, 146, 146),
+          Color.fromARGB(255, 107, 102, 102),
+          Color.fromARGB(255, 199, 192, 192),
         ],
         stops: [
           0.1,
           0.5,
           0.9,
+          0.5,
+          0.1,
         ],
       ),
       child: ch);

@@ -54,23 +54,21 @@ class HomeView extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                child: const Text(
-                                  'Logo',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w900,
-                                  ),
+                                child: Image.asset(
+                                  'assets/logo.jpg',
+                                  height: 40,
+                                  filterQuality: FilterQuality.high,
                                 ),
                               ),
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                child: const Text('Whatever was hidden here'),
-                              ),
+                              // Container(
+                              //   padding: const EdgeInsets.all(10),
+                              //   decoration: const BoxDecoration(
+                              //     color: Colors.white,
+                              //     borderRadius:
+                              //         BorderRadius.all(Radius.circular(10)),
+                              //   ),
+                              //   child: const Text('Whatever was hidden here'),
+                              // ),
                             ],
                           ),
                           const SizedBox(height: 20),

@@ -31,7 +31,8 @@ class BalanceView extends GetView<BalanceConroller> {
                 children: [
                   controller.obx(
                     (balance) => AppText(
-                      text: '${balance!.currency} ${balance.balance as String}',
+                      text:
+                          '${balance!.currency ?? 'USD'} ${balance.balance as String}',
                       size: 24,
                     ),
                     onLoading: const SkeletonLine(
